@@ -1,0 +1,1225 @@
+Tue Apr 11 20:41:56 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 520.61.05    Driver Version: 520.61.05    CUDA Version: 11.8     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  Off  | 00000000:1D:00.0 Off |                  N/A |
+| 22%   31C    P8    22W / 250W |      0MiB / 11264MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+Logging to diffusion_models/diff_e2e-tgt_block_rand16_transformer_lr0.0001_0.0_2000_sqrt_Lsimple_h128_s2_d0.1_sd102_xstart_e2e
+creating model and diffusion...
+creating model, based on transformer
+BertConfig {
+  "_name_or_path": "bert-base-uncased",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.17.0.dev0",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 30522
+}
+
+LossType.E2E_MSE False
+training mode is  e2e
+training mode is  e2e
+the parameter count is 87129749
+saving the hyperparameters to diffusion_models/diff_e2e-tgt_block_rand16_transformer_lr0.0001_0.0_2000_sqrt_Lsimple_h128_s2_d0.1_sd102_xstart_e2e/training_args.json
+creating data loader...
+load data **************************************************
+hello loading text data. 
+hello loading e2e-tgt. 
+loading dataset from simple e2e dataset
+loading form the TRAIN set
+[['The', 'Vaults', 'pub', 'near', 'Café', 'Adriatic', 'has', 'a', '5', 'star', 'rating', '.', 'Prices', 'start', 'at', '£', '30', '.', '\n'], ['Close', 'to', 'Café', 'Brazil', ',', 'The', 'Cambridge', 'Blue', 'pub', 'serves', 'delicious', 'Tuscan', 'Beef', 'for', 'the', 'cheap', 'price', 'of', '£', '10.50', '.', 'Delicious', 'Pub', 'food', '.', '\n']]
+2974 821
+save the vocab to diffusion_models/diff_e2e-tgt_block_rand16_transformer_lr0.0001_0.0_2000_sqrt_Lsimple_h128_s2_d0.1_sd102_xstart_e2e/vocab.json
+initializing the random embeddings Embedding(821, 16)
+save the random encoder to diffusion_models/diff_e2e-tgt_block_rand16_transformer_lr0.0001_0.0_2000_sqrt_Lsimple_h128_s2_d0.1_sd102_xstart_e2e/random_emb.torch
+[[0, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 15, 21, 1], [0, 22, 23, 8, 24, 25, 4, 26, 27, 6, 28, 29, 2, 2, 30, 31, 32, 33, 34, 19, 2, 15, 2, 35, 36, 15, 21, 1]]
+padding mode is block
+8
+loading from diffusion_models/diff_e2e-tgt_block_rand16_transformer_lr0.0001_0.0_2000_sqrt_Lsimple_h128_s2_d0.1_sd102_xstart_e2e/vocab.json
+821
+loading from diffusion_models/diff_e2e-tgt_block_rand16_transformer_lr0.0001_0.0_2000_sqrt_Lsimple_h128_s2_d0.1_sd102_xstart_e2e/vocab.json
+821
+Embedding(821, 16) False
+training...
+------------------------
+| grad_norm | 1.04     |
+| loss      | 1.75     |
+| loss_q0   | 1.78     |
+| loss_q1   | 1.75     |
+| loss_q2   | 1.73     |
+| loss_q3   | 1.77     |
+| mse       | 1.01     |
+| mse_q0    | 1.02     |
+| mse_q1    | 0.999    |
+| mse_q2    | 1.02     |
+| mse_q3    | 0.993    |
+| samples   | 64       |
+| step      | 0        |
+------------------------
+hello loading text data. 
+loading initialized random embeddings. 
+hello loading e2e-tgt. 
+loading dataset from simple e2e dataset
+loading form the VALID set
+[['There', 'is', 'a', 'place', 'in', 'the', 'city', 'centre', ',', 'Alimentum', ',', 'that', 'is', 'not', 'family', '-', 'friendly', '.', '\n'], ['In', 'the', 'city', 'centre', 'there', 'is', 'a', 'venue', 'name', 'Alimentum', ',', 'this', 'is', 'not', 'a', 'family', '-', 'friendly', 'venue', '.', '\n']]
+[[0, 176, 38, 11, 114, 65, 31, 107, 108, 25, 152, 25, 47, 38, 104, 48, 105, 49, 15, 21, 1], [0, 106, 31, 107, 108, 216, 38, 11, 378, 362, 152, 25, 88, 38, 104, 11, 48, 105, 49, 378, 15, 21, 1]]
+padding mode is block
+8
+eval on validation set
+---------------------------
+| eval_loss    | 2.36     |
+| eval_loss_q0 | 2.31     |
+| eval_loss_q1 | 2.34     |
+| eval_loss_q2 | 2.39     |
+| eval_loss_q3 | 2.43     |
+| eval_mse     | 1.62     |
+| eval_mse_q0  | 1.59     |
+| eval_mse_q1  | 1.61     |
+| eval_mse_q2  | 1.63     |
+| eval_mse_q3  | 1.66     |
+---------------------------
+saving model 0...
+writing to diffusion_models/diff_e2e-tgt_block_rand16_transformer_lr0.0001_0.0_2000_sqrt_Lsimple_h128_s2_d0.1_sd102_xstart_e2e/model000000.pt
+writing to diffusion_models/diff_e2e-tgt_block_rand16_transformer_lr0.0001_0.0_2000_sqrt_Lsimple_h128_s2_d0.1_sd102_xstart_e2e/model000000.pt
+saving model 0.9999...
+writing to diffusion_models/diff_e2e-tgt_block_rand16_transformer_lr0.0001_0.0_2000_sqrt_Lsimple_h128_s2_d0.1_sd102_xstart_e2e/ema_0.9999_000000.pt
+writing to diffusion_models/diff_e2e-tgt_block_rand16_transformer_lr0.0001_0.0_2000_sqrt_Lsimple_h128_s2_d0.1_sd102_xstart_e2e/ema_0.9999_000000.pt
+------------------------
+| grad_norm | 0.788    |
+| loss      | 1.42     |
+| loss_q0   | 1.18     |
+| loss_q1   | 1.36     |
+| loss_q2   | 1.5      |
+| loss_q3   | 1.64     |
+| mse       | 0.698    |
+| mse_q0    | 0.451    |
+| mse_q1    | 0.63     |
+| mse_q2    | 0.778    |
+| mse_q3    | 0.921    |
+| samples   | 3.26e+03 |
+| step      | 50       |
+------------------------
+------------------------
+| grad_norm | 0.39     |
+| loss      | 1.28     |
+| loss_q0   | 0.979    |
+| loss_q1   | 1.2      |
+| loss_q2   | 1.4      |
+| loss_q3   | 1.56     |
+| mse       | 0.589    |
+| mse_q0    | 0.285    |
+| mse_q1    | 0.517    |
+| mse_q2    | 0.706    |
+| mse_q3    | 0.864    |
+| samples   | 6.46e+03 |
+| step      | 100      |
+------------------------
+------------------------
+| grad_norm | 0.365    |
+| loss      | 1.24     |
+| loss_q0   | 0.92     |
+| loss_q1   | 1.15     |
+| loss_q2   | 1.34     |
+| loss_q3   | 1.52     |
+| mse       | 0.579    |
+| mse_q0    | 0.258    |
+| mse_q1    | 0.489    |
+| mse_q2    | 0.689    |
+| mse_q3    | 0.862    |
+| samples   | 9.66e+03 |
+| step      | 150      |
+------------------------
+------------------------
+| grad_norm | 0.372    |
+| loss      | 1.19     |
+| loss_q0   | 0.863    |
+| loss_q1   | 1.09     |
+| loss_q2   | 1.31     |
+| loss_q3   | 1.49     |
+| mse       | 0.568    |
+| mse_q0    | 0.236    |
+| mse_q1    | 0.471    |
+| mse_q2    | 0.681    |
+| mse_q3    | 0.866    |
+| samples   | 1.29e+04 |
+| step      | 200      |
+------------------------
+------------------------
+| grad_norm | 0.344    |
+| loss      | 1.15     |
+| loss_q0   | 0.816    |
+| loss_q1   | 1.06     |
+| loss_q2   | 1.27     |
+| loss_q3   | 1.46     |
+| mse       | 0.556    |
+| mse_q0    | 0.221    |
+| mse_q1    | 0.463    |
+| mse_q2    | 0.68     |
+| mse_q3    | 0.867    |
+| samples   | 1.61e+04 |
+| step      | 250      |
+------------------------
+------------------------
+| grad_norm | 0.349    |
+| loss      | 1.13     |
+| loss_q0   | 0.787    |
+| loss_q1   | 1.01     |
+| loss_q2   | 1.25     |
+| loss_q3   | 1.44     |
+| mse       | 0.558    |
+| mse_q0    | 0.217    |
+| mse_q1    | 0.448    |
+| mse_q2    | 0.679    |
+| mse_q3    | 0.866    |
+| samples   | 1.93e+04 |
+| step      | 300      |
+------------------------
+------------------------
+| grad_norm | 0.356    |
+| loss      | 1.09     |
+| loss_q0   | 0.747    |
+| loss_q1   | 0.976    |
+| loss_q2   | 1.22     |
+| loss_q3   | 1.41     |
+| mse       | 0.545    |
+| mse_q0    | 0.203    |
+| mse_q1    | 0.437    |
+| mse_q2    | 0.675    |
+| mse_q3    | 0.867    |
+| samples   | 2.25e+04 |
+| step      | 350      |
+------------------------
+------------------------
+| grad_norm | 0.335    |
+| loss      | 1.05     |
+| loss_q0   | 0.707    |
+| loss_q1   | 0.948    |
+| loss_q2   | 1.19     |
+| loss_q3   | 1.39     |
+| mse       | 0.537    |
+| mse_q0    | 0.19     |
+| mse_q1    | 0.428    |
+| mse_q2    | 0.679    |
+| mse_q3    | 0.87     |
+| samples   | 2.57e+04 |
+| step      | 400      |
+------------------------
+------------------------
+| grad_norm | 0.332    |
+| loss      | 1.02     |
+| loss_q0   | 0.666    |
+| loss_q1   | 0.916    |
+| loss_q2   | 1.16     |
+| loss_q3   | 1.37     |
+| mse       | 0.531    |
+| mse_q0    | 0.177    |
+| mse_q1    | 0.425    |
+| mse_q2    | 0.673    |
+| mse_q3    | 0.871    |
+| samples   | 2.89e+04 |
+| step      | 450      |
+------------------------
+------------------------
+| grad_norm | 0.33     |
+| loss      | 0.997    |
+| loss_q0   | 0.639    |
+| loss_q1   | 0.893    |
+| loss_q2   | 1.14     |
+| loss_q3   | 1.35     |
+| mse       | 0.528    |
+| mse_q0    | 0.172    |
+| mse_q1    | 0.423    |
+| mse_q2    | 0.671    |
+| mse_q3    | 0.872    |
+| samples   | 3.21e+04 |
+| step      | 500      |
+------------------------
+------------------------
+| grad_norm | 0.342    |
+| loss      | 0.981    |
+| loss_q0   | 0.617    |
+| loss_q1   | 0.866    |
+| loss_q2   | 1.13     |
+| loss_q3   | 1.33     |
+| mse       | 0.534    |
+| mse_q0    | 0.17     |
+| mse_q1    | 0.42     |
+| mse_q2    | 0.677    |
+| mse_q3    | 0.878    |
+| samples   | 3.53e+04 |
+| step      | 550      |
+------------------------
+------------------------
+| grad_norm | 0.328    |
+| loss      | 0.953    |
+| loss_q0   | 0.593    |
+| loss_q1   | 0.833    |
+| loss_q2   | 1.09     |
+| loss_q3   | 1.3      |
+| mse       | 0.526    |
+| mse_q0    | 0.162    |
+| mse_q1    | 0.412    |
+| mse_q2    | 0.662    |
+| mse_q3    | 0.878    |
+| samples   | 3.85e+04 |
+| step      | 600      |
+------------------------
+------------------------
+| grad_norm | 0.329    |
+| loss      | 0.933    |
+| loss_q0   | 0.568    |
+| loss_q1   | 0.814    |
+| loss_q2   | 1.07     |
+| loss_q3   | 1.28     |
+| mse       | 0.523    |
+| mse_q0    | 0.158    |
+| mse_q1    | 0.402    |
+| mse_q2    | 0.659    |
+| mse_q3    | 0.876    |
+| samples   | 4.17e+04 |
+| step      | 650      |
+------------------------
+------------------------
+| grad_norm | 0.327    |
+| loss      | 0.899    |
+| loss_q0   | 0.536    |
+| loss_q1   | 0.786    |
+| loss_q2   | 1.04     |
+| loss_q3   | 1.26     |
+| mse       | 0.511    |
+| mse_q0    | 0.151    |
+| mse_q1    | 0.395    |
+| mse_q2    | 0.648    |
+| mse_q3    | 0.874    |
+| samples   | 4.49e+04 |
+| step      | 700      |
+------------------------
+------------------------
+| grad_norm | 0.344    |
+| loss      | 0.881    |
+| loss_q0   | 0.517    |
+| loss_q1   | 0.75     |
+| loss_q2   | 1        |
+| loss_q3   | 1.24     |
+| mse       | 0.51     |
+| mse_q0    | 0.145    |
+| mse_q1    | 0.378    |
+| mse_q2    | 0.631    |
+| mse_q3    | 0.867    |
+| samples   | 4.81e+04 |
+| step      | 750      |
+------------------------
+------------------------
+| grad_norm | 0.312    |
+| loss      | 0.845    |
+| loss_q0   | 0.498    |
+| loss_q1   | 0.705    |
+| loss_q2   | 0.973    |
+| loss_q3   | 1.22     |
+| mse       | 0.492    |
+| mse_q0    | 0.143    |
+| mse_q1    | 0.355    |
+| mse_q2    | 0.62     |
+| mse_q3    | 0.863    |
+| samples   | 5.13e+04 |
+| step      | 800      |
+------------------------
+------------------------
+| grad_norm | 0.319    |
+| loss      | 0.822    |
+| loss_q0   | 0.472    |
+| loss_q1   | 0.688    |
+| loss_q2   | 0.945    |
+| loss_q3   | 1.2      |
+| mse       | 0.485    |
+| mse_q0    | 0.136    |
+| mse_q1    | 0.352    |
+| mse_q2    | 0.607    |
+| mse_q3    | 0.865    |
+| samples   | 5.45e+04 |
+| step      | 850      |
+------------------------
+------------------------
+| grad_norm | 0.313    |
+| loss      | 0.803    |
+| loss_q0   | 0.452    |
+| loss_q1   | 0.662    |
+| loss_q2   | 0.923    |
+| loss_q3   | 1.18     |
+| mse       | 0.481    |
+| mse_q0    | 0.132    |
+| mse_q1    | 0.34     |
+| mse_q2    | 0.602    |
+| mse_q3    | 0.859    |
+| samples   | 5.77e+04 |
+| step      | 900      |
+------------------------
+------------------------
+| grad_norm | 0.294    |
+| loss      | 0.78     |
+| loss_q0   | 0.436    |
+| loss_q1   | 0.636    |
+| loss_q2   | 0.901    |
+| loss_q3   | 1.16     |
+| mse       | 0.472    |
+| mse_q0    | 0.129    |
+| mse_q1    | 0.327    |
+| mse_q2    | 0.594    |
+| mse_q3    | 0.852    |
+| samples   | 6.09e+04 |
+| step      | 950      |
+------------------------
+------------------------
+| grad_norm | 0.3      |
+| loss      | 0.764    |
+| loss_q0   | 0.413    |
+| loss_q1   | 0.613    |
+| loss_q2   | 0.877    |
+| loss_q3   | 1.15     |
+| mse       | 0.471    |
+| mse_q0    | 0.122    |
+| mse_q1    | 0.321    |
+| mse_q2    | 0.585    |
+| mse_q3    | 0.855    |
+| samples   | 6.41e+04 |
+| step      | 1e+03    |
+------------------------
+------------------------
+| grad_norm | 0.302    |
+| loss      | 0.749    |
+| loss_q0   | 0.397    |
+| loss_q1   | 0.599    |
+| loss_q2   | 0.862    |
+| loss_q3   | 1.14     |
+| mse       | 0.469    |
+| mse_q0    | 0.119    |
+| mse_q1    | 0.316    |
+| mse_q2    | 0.584    |
+| mse_q3    | 0.856    |
+| samples   | 6.73e+04 |
+| step      | 1.05e+03 |
+------------------------
+------------------------
+| grad_norm | 0.289    |
+| loss      | 0.729    |
+| loss_q0   | 0.376    |
+| loss_q1   | 0.575    |
+| loss_q2   | 0.842    |
+| loss_q3   | 1.12     |
+| mse       | 0.463    |
+| mse_q0    | 0.112    |
+| mse_q1    | 0.308    |
+| mse_q2    | 0.575    |
+| mse_q3    | 0.855    |
+| samples   | 7.05e+04 |
+| step      | 1.1e+03  |
+------------------------
+------------------------
+| grad_norm | 0.283    |
+| loss      | 0.71     |
+| loss_q0   | 0.363    |
+| loss_q1   | 0.554    |
+| loss_q2   | 0.825    |
+| loss_q3   | 1.11     |
+| mse       | 0.455    |
+| mse_q0    | 0.109    |
+| mse_q1    | 0.299    |
+| mse_q2    | 0.57     |
+| mse_q3    | 0.857    |
+| samples   | 7.37e+04 |
+| step      | 1.15e+03 |
+------------------------
+------------------------
+| grad_norm | 0.279    |
+| loss      | 0.694    |
+| loss_q0   | 0.344    |
+| loss_q1   | 0.533    |
+| loss_q2   | 0.809    |
+| loss_q3   | 1.1      |
+| mse       | 0.451    |
+| mse_q0    | 0.101    |
+| mse_q1    | 0.29     |
+| mse_q2    | 0.568    |
+| mse_q3    | 0.86     |
+| samples   | 7.69e+04 |
+| step      | 1.2e+03  |
+------------------------
+------------------------
+| grad_norm | 0.289    |
+| loss      | 0.686    |
+| loss_q0   | 0.337    |
+| loss_q1   | 0.521    |
+| loss_q2   | 0.797    |
+| loss_q3   | 1.09     |
+| mse       | 0.454    |
+| mse_q0    | 0.103    |
+| mse_q1    | 0.289    |
+| mse_q2    | 0.565    |
+| mse_q3    | 0.855    |
+| samples   | 8.01e+04 |
+| step      | 1.25e+03 |
+------------------------
+------------------------
+| grad_norm | 0.279    |
+| loss      | 0.674    |
+| loss_q0   | 0.323    |
+| loss_q1   | 0.5      |
+| loss_q2   | 0.774    |
+| loss_q3   | 1.07     |
+| mse       | 0.453    |
+| mse_q0    | 0.101    |
+| mse_q1    | 0.28     |
+| mse_q2    | 0.553    |
+| mse_q3    | 0.85     |
+| samples   | 8.33e+04 |
+| step      | 1.3e+03  |
+------------------------
+------------------------
+| grad_norm | 0.293    |
+| loss      | 0.656    |
+| loss_q0   | 0.309    |
+| loss_q1   | 0.485    |
+| loss_q2   | 0.765    |
+| loss_q3   | 1.07     |
+| mse       | 0.446    |
+| mse_q0    | 0.0989   |
+| mse_q1    | 0.275    |
+| mse_q2    | 0.556    |
+| mse_q3    | 0.853    |
+| samples   | 8.65e+04 |
+| step      | 1.35e+03 |
+------------------------
+------------------------
+| grad_norm | 0.266    |
+| loss      | 0.641    |
+| loss_q0   | 0.294    |
+| loss_q1   | 0.472    |
+| loss_q2   | 0.754    |
+| loss_q3   | 1.06     |
+| mse       | 0.439    |
+| mse_q0    | 0.0932   |
+| mse_q1    | 0.267    |
+| mse_q2    | 0.552    |
+| mse_q3    | 0.856    |
+| samples   | 8.97e+04 |
+| step      | 1.4e+03  |
+------------------------
+------------------------
+| grad_norm | 0.263    |
+| loss      | 0.637    |
+| loss_q0   | 0.283    |
+| loss_q1   | 0.46     |
+| loss_q2   | 0.74     |
+| loss_q3   | 1.05     |
+| mse       | 0.445    |
+| mse_q0    | 0.0905   |
+| mse_q1    | 0.268    |
+| mse_q2    | 0.548    |
+| mse_q3    | 0.859    |
+| samples   | 9.29e+04 |
+| step      | 1.45e+03 |
+------------------------
+------------------------
+| grad_norm | 0.265    |
+| loss      | 0.619    |
+| loss_q0   | 0.272    |
+| loss_q1   | 0.452    |
+| loss_q2   | 0.723    |
+| loss_q3   | 1.03     |
+| mse       | 0.435    |
+| mse_q0    | 0.0887   |
+| mse_q1    | 0.27     |
+| mse_q2    | 0.54     |
+| mse_q3    | 0.848    |
+| samples   | 9.61e+04 |
+| step      | 1.5e+03  |
+------------------------
+------------------------
+| grad_norm | 0.261    |
+| loss      | 0.599    |
+| loss_q0   | 0.262    |
+| loss_q1   | 0.43     |
+| loss_q2   | 0.721    |
+| loss_q3   | 1.03     |
+| mse       | 0.424    |
+| mse_q0    | 0.0875   |
+| mse_q1    | 0.257    |
+| mse_q2    | 0.544    |
+| mse_q3    | 0.853    |
+| samples   | 9.93e+04 |
+| step      | 1.55e+03 |
+------------------------
+------------------------
+| grad_norm | 0.258    |
+| loss      | 0.596    |
+| loss_q0   | 0.25     |
+| loss_q1   | 0.426    |
+| loss_q2   | 0.708    |
+| loss_q3   | 1.02     |
+| mse       | 0.428    |
+| mse_q0    | 0.0826   |
+| mse_q1    | 0.258    |
+| mse_q2    | 0.539    |
+| mse_q3    | 0.851    |
+| samples   | 1.02e+05 |
+| step      | 1.6e+03  |
+------------------------
+------------------------
+| grad_norm | 0.279    |
+| loss      | 0.582    |
+| loss_q0   | 0.241    |
+| loss_q1   | 0.411    |
+| loss_q2   | 0.691    |
+| loss_q3   | 1.02     |
+| mse       | 0.422    |
+| mse_q0    | 0.0807   |
+| mse_q1    | 0.252    |
+| mse_q2    | 0.531    |
+| mse_q3    | 0.858    |
+| samples   | 1.06e+05 |
+| step      | 1.65e+03 |
+------------------------
+------------------------
+| grad_norm | 0.252    |
+| loss      | 0.58     |
+| loss_q0   | 0.233    |
+| loss_q1   | 0.403    |
+| loss_q2   | 0.693    |
+| loss_q3   | 1        |
+| mse       | 0.427    |
+| mse_q0    | 0.0806   |
+| mse_q1    | 0.249    |
+| mse_q2    | 0.539    |
+| mse_q3    | 0.851    |
+| samples   | 1.09e+05 |
+| step      | 1.7e+03  |
+------------------------
+------------------------
+| grad_norm | 0.272    |
+| loss      | 0.579    |
+| loss_q0   | 0.222    |
+| loss_q1   | 0.394    |
+| loss_q2   | 0.677    |
+| loss_q3   | 1.01     |
+| mse       | 0.433    |
+| mse_q0    | 0.0766   |
+| mse_q1    | 0.247    |
+| mse_q2    | 0.531    |
+| mse_q3    | 0.86     |
+| samples   | 1.12e+05 |
+| step      | 1.75e+03 |
+------------------------
+------------------------
+| grad_norm | 0.254    |
+| loss      | 0.567    |
+| loss_q0   | 0.218    |
+| loss_q1   | 0.386    |
+| loss_q2   | 0.669    |
+| loss_q3   | 0.996    |
+| mse       | 0.427    |
+| mse_q0    | 0.0772   |
+| mse_q1    | 0.245    |
+| mse_q2    | 0.529    |
+| mse_q3    | 0.857    |
+| samples   | 1.15e+05 |
+| step      | 1.8e+03  |
+------------------------
+------------------------
+| grad_norm | 0.276    |
+| loss      | 0.559    |
+| loss_q0   | 0.209    |
+| loss_q1   | 0.374    |
+| loss_q2   | 0.653    |
+| loss_q3   | 0.992    |
+| mse       | 0.425    |
+| mse_q0    | 0.0749   |
+| mse_q1    | 0.239    |
+| mse_q2    | 0.518    |
+| mse_q3    | 0.859    |
+| samples   | 1.18e+05 |
+| step      | 1.85e+03 |
+------------------------
+------------------------
+| grad_norm | 0.239    |
+| loss      | 0.545    |
+| loss_q0   | 0.204    |
+| loss_q1   | 0.362    |
+| loss_q2   | 0.646    |
+| loss_q3   | 0.982    |
+| mse       | 0.417    |
+| mse_q0    | 0.0757   |
+| mse_q1    | 0.232    |
+| mse_q2    | 0.518    |
+| mse_q3    | 0.853    |
+| samples   | 1.22e+05 |
+| step      | 1.9e+03  |
+------------------------
+------------------------
+| grad_norm | 0.249    |
+| loss      | 0.549    |
+| loss_q0   | 0.195    |
+| loss_q1   | 0.361    |
+| loss_q2   | 0.648    |
+| loss_q3   | 0.975    |
+| mse       | 0.426    |
+| mse_q0    | 0.0717   |
+| mse_q1    | 0.239    |
+| mse_q2    | 0.525    |
+| mse_q3    | 0.851    |
+| samples   | 1.25e+05 |
+| step      | 1.95e+03 |
+------------------------
+------------------------
+| grad_norm | 0.246    |
+| loss      | 0.527    |
+| loss_q0   | 0.19     |
+| loss_q1   | 0.352    |
+| loss_q2   | 0.627    |
+| loss_q3   | 0.973    |
+| mse       | 0.41     |
+| mse_q0    | 0.0723   |
+| mse_q1    | 0.233    |
+| mse_q2    | 0.51     |
+| mse_q3    | 0.856    |
+| samples   | 1.28e+05 |
+| step      | 2e+03    |
+------------------------
+eval on validation set
+---------------------------
+| eval_loss    | 0.603    |
+| eval_loss_q0 | 0.201    |
+| eval_loss_q1 | 0.352    |
+| eval_loss_q2 | 0.648    |
+| eval_loss_q3 | 0.995    |
+| eval_mse     | 0.485    |
+| eval_mse_q0  | 0.0695   |
+| eval_mse_q1  | 0.24     |
+| eval_mse_q2  | 0.535    |
+| eval_mse_q3  | 0.877    |
+---------------------------
+------------------------
+| grad_norm | 0.229    |
+| loss      | 0.521    |
+| loss_q0   | 0.178    |
+| loss_q1   | 0.331    |
+| loss_q2   | 0.628    |
+| loss_q3   | 0.97     |
+| mse       | 0.41     |
+| mse_q0    | 0.0676   |
+| mse_q1    | 0.222    |
+| mse_q2    | 0.516    |
+| mse_q3    | 0.857    |
+| samples   | 1.31e+05 |
+| step      | 2.05e+03 |
+------------------------
+------------------------
+| grad_norm | 0.237    |
+| loss      | 0.506    |
+| loss_q0   | 0.179    |
+| loss_q1   | 0.337    |
+| loss_q2   | 0.614    |
+| loss_q3   | 0.956    |
+| mse       | 0.399    |
+| mse_q0    | 0.071    |
+| mse_q1    | 0.229    |
+| mse_q2    | 0.507    |
+| mse_q3    | 0.848    |
+| samples   | 1.34e+05 |
+| step      | 2.1e+03  |
+------------------------
+------------------------
+| grad_norm | 0.251    |
+| loss      | 0.516    |
+| loss_q0   | 0.171    |
+| loss_q1   | 0.326    |
+| loss_q2   | 0.615    |
+| loss_q3   | 0.962    |
+| mse       | 0.414    |
+| mse_q0    | 0.0683   |
+| mse_q1    | 0.225    |
+| mse_q2    | 0.512    |
+| mse_q3    | 0.86     |
+| samples   | 1.38e+05 |
+| step      | 2.15e+03 |
+------------------------
+------------------------
+| grad_norm | 0.23     |
+| loss      | 0.511    |
+| loss_q0   | 0.164    |
+| loss_q1   | 0.323    |
+| loss_q2   | 0.611    |
+| loss_q3   | 0.953    |
+| mse       | 0.413    |
+| mse_q0    | 0.0669   |
+| mse_q1    | 0.225    |
+| mse_q2    | 0.512    |
+| mse_q3    | 0.855    |
+| samples   | 1.41e+05 |
+| step      | 2.2e+03  |
+------------------------
+------------------------
+| grad_norm | 0.242    |
+| loss      | 0.509    |
+| loss_q0   | 0.158    |
+| loss_q1   | 0.317    |
+| loss_q2   | 0.593    |
+| loss_q3   | 0.948    |
+| mse       | 0.414    |
+| mse_q0    | 0.0635   |
+| mse_q1    | 0.222    |
+| mse_q2    | 0.497    |
+| mse_q3    | 0.854    |
+| samples   | 1.44e+05 |
+| step      | 2.25e+03 |
+------------------------
+------------------------
+| grad_norm | 0.24     |
+| loss      | 0.498    |
+| loss_q0   | 0.158    |
+| loss_q1   | 0.303    |
+| loss_q2   | 0.585    |
+| loss_q3   | 0.942    |
+| mse       | 0.407    |
+| mse_q0    | 0.065    |
+| mse_q1    | 0.213    |
+| mse_q2    | 0.492    |
+| mse_q3    | 0.851    |
+| samples   | 1.47e+05 |
+| step      | 2.3e+03  |
+------------------------
+------------------------
+| grad_norm | 0.248    |
+| loss      | 0.504    |
+| loss_q0   | 0.153    |
+| loss_q1   | 0.307    |
+| loss_q2   | 0.592    |
+| loss_q3   | 0.948    |
+| mse       | 0.417    |
+| mse_q0    | 0.0647   |
+| mse_q1    | 0.218    |
+| mse_q2    | 0.505    |
+| mse_q3    | 0.861    |
+| samples   | 1.5e+05  |
+| step      | 2.35e+03 |
+------------------------
+------------------------
+| grad_norm | 0.262    |
+| loss      | 0.492    |
+| loss_q0   | 0.146    |
+| loss_q1   | 0.299    |
+| loss_q2   | 0.573    |
+| loss_q3   | 0.936    |
+| mse       | 0.409    |
+| mse_q0    | 0.0621   |
+| mse_q1    | 0.217    |
+| mse_q2    | 0.489    |
+| mse_q3    | 0.853    |
+| samples   | 1.54e+05 |
+| step      | 2.4e+03  |
+------------------------
+------------------------
+| grad_norm | 0.238    |
+| loss      | 0.484    |
+| loss_q0   | 0.139    |
+| loss_q1   | 0.295    |
+| loss_q2   | 0.573    |
+| loss_q3   | 0.93     |
+| mse       | 0.403    |
+| mse_q0    | 0.0602   |
+| mse_q1    | 0.213    |
+| mse_q2    | 0.493    |
+| mse_q3    | 0.85     |
+| samples   | 1.57e+05 |
+| step      | 2.45e+03 |
+------------------------
+------------------------
+| grad_norm | 0.223    |
+| loss      | 0.467    |
+| loss_q0   | 0.14     |
+| loss_q1   | 0.285    |
+| loss_q2   | 0.57     |
+| loss_q3   | 0.929    |
+| mse       | 0.389    |
+| mse_q0    | 0.0622   |
+| mse_q1    | 0.209    |
+| mse_q2    | 0.492    |
+| mse_q3    | 0.851    |
+| samples   | 1.6e+05  |
+| step      | 2.5e+03  |
+------------------------
+------------------------
+| grad_norm | 0.24     |
+| loss      | 0.481    |
+| loss_q0   | 0.135    |
+| loss_q1   | 0.287    |
+| loss_q2   | 0.57     |
+| loss_q3   | 0.923    |
+| mse       | 0.406    |
+| mse_q0    | 0.0599   |
+| mse_q1    | 0.213    |
+| mse_q2    | 0.496    |
+| mse_q3    | 0.848    |
+| samples   | 1.63e+05 |
+| step      | 2.55e+03 |
+------------------------
+------------------------
+| grad_norm | 0.243    |
+| loss      | 0.477    |
+| loss_q0   | 0.131    |
+| loss_q1   | 0.281    |
+| loss_q2   | 0.567    |
+| loss_q3   | 0.934    |
+| mse       | 0.405    |
+| mse_q0    | 0.0592   |
+| mse_q1    | 0.209    |
+| mse_q2    | 0.496    |
+| mse_q3    | 0.862    |
+| samples   | 1.66e+05 |
+| step      | 2.6e+03  |
+------------------------
+------------------------
+| grad_norm | 0.237    |
+| loss      | 0.47     |
+| loss_q0   | 0.13     |
+| loss_q1   | 0.277    |
+| loss_q2   | 0.557    |
+| loss_q3   | 0.917    |
+| mse       | 0.401    |
+| mse_q0    | 0.0603   |
+| mse_q1    | 0.208    |
+| mse_q2    | 0.489    |
+| mse_q3    | 0.848    |
+| samples   | 1.7e+05  |
+| step      | 2.65e+03 |
+------------------------
+------------------------
+| grad_norm | 0.247    |
+| loss      | 0.47     |
+| loss_q0   | 0.123    |
+| loss_q1   | 0.266    |
+| loss_q2   | 0.554    |
+| loss_q3   | 0.918    |
+| mse       | 0.404    |
+| mse_q0    | 0.0569   |
+| mse_q1    | 0.201    |
+| mse_q2    | 0.489    |
+| mse_q3    | 0.85     |
+| samples   | 1.73e+05 |
+| step      | 2.7e+03  |
+------------------------
+------------------------
+| grad_norm | 0.236    |
+| loss      | 0.462    |
+| loss_q0   | 0.122    |
+| loss_q1   | 0.268    |
+| loss_q2   | 0.545    |
+| loss_q3   | 0.907    |
+| mse       | 0.398    |
+| mse_q0    | 0.0585   |
+| mse_q1    | 0.205    |
+| mse_q2    | 0.481    |
+| mse_q3    | 0.843    |
+| samples   | 1.76e+05 |
+| step      | 2.75e+03 |
+------------------------
+------------------------
+| grad_norm | 0.239    |
+| loss      | 0.454    |
+| loss_q0   | 0.118    |
+| loss_q1   | 0.263    |
+| loss_q2   | 0.542    |
+| loss_q3   | 0.912    |
+| mse       | 0.392    |
+| mse_q0    | 0.0563   |
+| mse_q1    | 0.201    |
+| mse_q2    | 0.479    |
+| mse_q3    | 0.851    |
+| samples   | 1.79e+05 |
+| step      | 2.8e+03  |
+------------------------
+------------------------
+| grad_norm | 0.241    |
+| loss      | 0.455    |
+| loss_q0   | 0.117    |
+| loss_q1   | 0.259    |
+| loss_q2   | 0.544    |
+| loss_q3   | 0.907    |
+| mse       | 0.396    |
+| mse_q0    | 0.0569   |
+| mse_q1    | 0.199    |
+| mse_q2    | 0.484    |
+| mse_q3    | 0.847    |
+| samples   | 1.82e+05 |
+| step      | 2.85e+03 |
+------------------------
+------------------------
+| grad_norm | 0.231    |
+| loss      | 0.457    |
+| loss_q0   | 0.112    |
+| loss_q1   | 0.258    |
+| loss_q2   | 0.541    |
+| loss_q3   | 0.908    |
+| mse       | 0.399    |
+| mse_q0    | 0.0548   |
+| mse_q1    | 0.2      |
+| mse_q2    | 0.483    |
+| mse_q3    | 0.85     |
+| samples   | 1.86e+05 |
+| step      | 2.9e+03  |
+------------------------
+------------------------
+| grad_norm | 0.243    |
+| loss      | 0.455    |
+| loss_q0   | 0.11     |
+| loss_q1   | 0.252    |
+| loss_q2   | 0.536    |
+| loss_q3   | 0.908    |
+| mse       | 0.398    |
+| mse_q0    | 0.0539   |
+| mse_q1    | 0.195    |
+| mse_q2    | 0.479    |
+| mse_q3    | 0.852    |
+| samples   | 1.89e+05 |
+| step      | 2.95e+03 |
+------------------------
+------------------------
+| grad_norm | 0.226    |
+| loss      | 0.442    |
+| loss_q0   | 0.109    |
+| loss_q1   | 0.25     |
+| loss_q2   | 0.532    |
+| loss_q3   | 0.908    |
+| mse       | 0.388    |
+| mse_q0    | 0.0548   |
+| mse_q1    | 0.196    |
+| mse_q2    | 0.479    |
+| mse_q3    | 0.853    |
+| samples   | 1.92e+05 |
+| step      | 3e+03    |
+------------------------
+------------------------
+| grad_norm | 0.237    |
+| loss      | 0.447    |
+| loss_q0   | 0.11     |
+| loss_q1   | 0.248    |
+| loss_q2   | 0.53     |
+| loss_q3   | 0.901    |
+| mse       | 0.394    |
+| mse_q0    | 0.0574   |
+| mse_q1    | 0.196    |
+| mse_q2    | 0.478    |
+| mse_q3    | 0.849    |
+| samples   | 1.95e+05 |
+| step      | 3.05e+03 |
+------------------------
+------------------------
+| grad_norm | 0.232    |
+| loss      | 0.447    |
+| loss_q0   | 0.105    |
+| loss_q1   | 0.244    |
+| loss_q2   | 0.523    |
+| loss_q3   | 0.902    |
+| mse       | 0.396    |
+| mse_q0    | 0.0544   |
+| mse_q1    | 0.193    |
+| mse_q2    | 0.472    |
+| mse_q3    | 0.851    |
+| samples   | 1.98e+05 |
+| step      | 3.1e+03  |
+------------------------
+------------------------
+| grad_norm | 0.227    |
+| loss      | 0.434    |
+| loss_q0   | 0.103    |
+| loss_q1   | 0.244    |
+| loss_q2   | 0.524    |
+| loss_q3   | 0.896    |
+| mse       | 0.385    |
+| mse_q0    | 0.0545   |
+| mse_q1    | 0.194    |
+| mse_q2    | 0.475    |
+| mse_q3    | 0.847    |
+| samples   | 2.02e+05 |
+| step      | 3.15e+03 |
+------------------------
+------------------------
+| grad_norm | 0.249    |
+| loss      | 0.433    |
+| loss_q0   | 0.101    |
+| loss_q1   | 0.241    |
+| loss_q2   | 0.519    |
+| loss_q3   | 0.885    |
+| mse       | 0.386    |
+| mse_q0    | 0.0531   |
+| mse_q1    | 0.193    |
+| mse_q2    | 0.471    |
+| mse_q3    | 0.837    |
+| samples   | 2.05e+05 |
+| step      | 3.2e+03  |
+------------------------
+------------------------
+| grad_norm | 0.238    |
+| loss      | 0.432    |
+| loss_q0   | 0.0985   |
+| loss_q1   | 0.249    |
+| loss_q2   | 0.509    |
+| loss_q3   | 0.89     |
+| mse       | 0.386    |
+| mse_q0    | 0.0521   |
+| mse_q1    | 0.202    |
+| mse_q2    | 0.462    |
+| mse_q3    | 0.844    |
+| samples   | 2.08e+05 |
+| step      | 3.25e+03 |
+------------------------
+------------------------
+| grad_norm | 0.236    |
+| loss      | 0.429    |
+| loss_q0   | 0.098    |
+| loss_q1   | 0.232    |
+| loss_q2   | 0.509    |
+| loss_q3   | 0.885    |
+| mse       | 0.383    |
+| mse_q0    | 0.053    |
+| mse_q1    | 0.186    |
+| mse_q2    | 0.464    |
+| mse_q3    | 0.84     |
+| samples   | 2.11e+05 |
+| step      | 3.3e+03  |
+------------------------
+------------------------
+| grad_norm | 0.233    |
+| loss      | 0.441    |
+| loss_q0   | 0.0953   |
+| loss_q1   | 0.23     |
+| loss_q2   | 0.516    |
+| loss_q3   | 0.89     |
+| mse       | 0.398    |
+| mse_q0    | 0.0515   |
+| mse_q1    | 0.186    |
+| mse_q2    | 0.472    |
+| mse_q3    | 0.846    |
+| samples   | 2.14e+05 |
+| step      | 3.35e+03 |
+------------------------
+------------------------
+| grad_norm | 0.222    |
+| loss      | 0.43     |
+| loss_q0   | 0.0927   |
+| loss_q1   | 0.224    |
+| loss_q2   | 0.513    |
+| loss_q3   | 0.896    |
+| mse       | 0.387    |
+| mse_q0    | 0.0499   |
+| mse_q1    | 0.182    |
+| mse_q2    | 0.47     |
+| mse_q3    | 0.853    |
+| samples   | 2.18e+05 |
+| step      | 3.4e+03  |
+------------------------
+------------------------
+| grad_norm | 0.228    |
+| loss      | 0.424    |
+| loss_q0   | 0.0929   |
+| loss_q1   | 0.226    |
+| loss_q2   | 0.495    |
+| loss_q3   | 0.884    |
+| mse       | 0.382    |
+| mse_q0    | 0.0513   |
+| mse_q1    | 0.185    |
+| mse_q2    | 0.453    |
+| mse_q3    | 0.843    |
+| samples   | 2.21e+05 |
+| step      | 3.45e+03 |
+------------------------
+------------------------
+| grad_norm | 0.218    |
+| loss      | 0.417    |
+| loss_q0   | 0.09     |
+| loss_q1   | 0.226    |
+| loss_q2   | 0.498    |
+| loss_q3   | 0.885    |
+| mse       | 0.376    |
+| mse_q0    | 0.0497   |
+| mse_q1    | 0.186    |
+| mse_q2    | 0.457    |
+| mse_q3    | 0.844    |
+| samples   | 2.24e+05 |
+| step      | 3.5e+03  |
+------------------------
+------------------------
+| grad_norm | 0.228    |
+| loss      | 0.424    |
+| loss_q0   | 0.09     |
+| loss_q1   | 0.222    |
+| loss_q2   | 0.499    |
+| loss_q3   | 0.882    |
+| mse       | 0.385    |
+| mse_q0    | 0.0504   |
+| mse_q1    | 0.184    |
+| mse_q2    | 0.459    |
+| mse_q3    | 0.842    |
+| samples   | 2.27e+05 |
+| step      | 3.55e+03 |
+------------------------
+------------------------
+| grad_norm | 0.224    |
+| loss      | 0.413    |
+| loss_q0   | 0.0887   |
+| loss_q1   | 0.216    |
+| loss_q2   | 0.5      |
+| loss_q3   | 0.874    |
+| mse       | 0.374    |
+| mse_q0    | 0.0497   |
+| mse_q1    | 0.178    |
+| mse_q2    | 0.461    |
+| mse_q3    | 0.836    |
+| samples   | 2.3e+05  |
+| step      | 3.6e+03  |
+------------------------
+------------------------
+| grad_norm | 0.224    |
+| loss      | 0.424    |
+| loss_q0   | 0.0884   |
+| loss_q1   | 0.216    |
+| loss_q2   | 0.497    |
+| loss_q3   | 0.881    |
+| mse       | 0.386    |
+| mse_q0    | 0.0507   |
+| mse_q1    | 0.179    |
+| mse_q2    | 0.46     |
+| mse_q3    | 0.843    |
+| samples   | 2.34e+05 |
+| step      | 3.65e+03 |
+------------------------
